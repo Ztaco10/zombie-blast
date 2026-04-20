@@ -10,7 +10,8 @@ class mathGame():
         self.coins = 0
         self.incorrect = 0
         self.correct = 0
-        self.loop = 0
+        self.loop = 3
+        self.opSign = "+"
 
     def generateNum(self, difficulty):
         if difficulty == "easy":
@@ -25,11 +26,10 @@ class mathGame():
         numbers = num1, num2
         return numbers
 
-    def problem(self, operation):
+    def problem(self, operation, difficulty):
         if operation == "add":
-            self.loop = 5
             while self.loop != 0:
-                num1,num2 = self.generateNum("easy")
+                num1,num2 = self.generateNum(difficulty)
                 sol = num1+num2
                 try:
                     userAnswer = int(input(f"{num1} + {num2} = "))
@@ -44,6 +44,39 @@ class mathGame():
                         print("Incorrect, try again.\n")
                         self.incorrect += 1
 
+        if operation == "sub":
+            while self.loop != 0:
+                num1,num2 = self.generateNum(difficulty)
+                sol = num1-num2
+                try:
+                    userAnswer = int(input(f"{num1} - {num2} = "))
+                except ValueError as e:
+                    print("Error: enter a valid integer\n")
+                else:
+                    if userAnswer==sol:
+                        print("Correct!\n")
+                        self.correct += 1
+                        self.loop -= 1
+                    elif userAnswer!=sol:
+                        print("Incorrect, try again.\n")
+                        self.incorrect += 1
+        if operation == "mul":
+            while self.loop != 0:
+                num1,num2 = self.generateNum(difficulty)
+                sol = num1*num2
+                try:
+                    userAnswer = int(input(f"{num1} * {num2} = "))
+                except ValueError as e:
+                    print("Error: enter a valid integer\n")
+                else:
+                    if userAnswer==sol:
+                        print("Correct!\n")
+                        self.correct += 1
+                        self.loop -= 1
+                    elif userAnswer!=sol:
+                        print("Incorrect, try again.\n")
+                        self.incorrect += 1
+        return (f"You got {self.correct} correct and {self.incorrect} incorrect\n")
 
 
 
