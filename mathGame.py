@@ -48,6 +48,10 @@ class mathGame():
                                 userAnswer = int(input(f"{num1} + {num2} = "))
                             except ValueError as e:
                                 print("Error: enter a valid integer\n")
+                            else:
+                                if userAnswer == sol:
+                                    print("Correct! But you don't get points for that.\n")
+                                    
                             
 
         if self.operation == "sub":
