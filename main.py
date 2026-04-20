@@ -38,7 +38,22 @@ def subtractionScene():
             print(e)
 
 def multiplicationScene():
-    difficultyOperation = int(input("1. Easy\n2. Medium\n3. Hard\n4. Return to Operations Menu\n"))
+    while True:
+        try:
+            difficultyOperation = int(input("1. Easy\n2. Medium\n3. Hard\n4. Return to Operations Menu\n"))
+            if difficultyOperation < 1 or difficultyOperation > 4:
+                raise ValueError("Error: enter a number between 1-4.")
+            elif difficultyOperation == 1:
+                mul = mathGame("mul", "easy")
+                mul.problem()
+            elif difficultyOperation == 2:
+                mul = mathGame("mul", "medium")
+                mul.problem()
+            elif difficultyOperation == 3:
+                mul = mathGame("mul", "hard")
+                mul.problem()
+        except Exception as e:
+            print(e)
 
 def startScene():
     while True:
