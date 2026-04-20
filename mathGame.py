@@ -27,7 +27,7 @@ class mathGame():
 
     def problem(self):
         if self.operation == "add":
-            while self.loop != 0:
+            while self.lives != 0:
                 num1,num2 = self.generateNum()
                 sol = num1+num2
                 try:
@@ -45,7 +45,7 @@ class mathGame():
                         self.incorrect += 1
 
         if self.operation == "sub":
-            while self.loop != 0:
+            while self.lives != 0:
                 num1,num2 = self.generateNum(self.difficulty)
                 sol = num1-num2
                 try:
@@ -62,7 +62,7 @@ class mathGame():
                         print("Incorrect, try again.\n")
                         self.incorrect += 1
         if self.operation == "mul":
-            while self.loop != 0:
+            while self.lives != 0:
                 num1,num2 = self.generateNum(self.difficulty)
                 sol = num1*num2
                 try:
