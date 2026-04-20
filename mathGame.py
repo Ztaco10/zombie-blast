@@ -15,14 +15,26 @@ class mathGame():
     def addition(self):
         if self.difficulty == 1:
             while True:
+                self.loop = 5
                 num1 = random.randint(0,9)
                 num2 = random.randint(0,9)
                 sol = num1+num2
-                userAnswer = int(input(f"{num1} + {num2} = "))
-                if userAnswer==sol:
-                    self.correct += 1
+                try:
+                    userAnswer = int(input(f"{num1} + {num2} = "))
+                except ValueError as e:
+                    print("Error: enter a valid integer\n")
                 else:
-                    self.incorrect += 1
+                    if userAnswer==sol:
+                        print("Correct!\n")
+                        self.correct += 1
+                        self.loop -= 1
+                    elif userAnswer!=sol:
+                        print("Incorrect, try again.\n")
+                        self.incorrect += 1
+
+
+
+
 
 
 
