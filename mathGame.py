@@ -3,7 +3,7 @@
 import random
 
 class mathGame():
-    def __init__(self, operation, difficulty, lives, coins, incorrect, correct, loop):
+    def __init__(self, operation, difficulty, lives):
         self.operation = operation
         self.difficulty = difficulty
         self.lives = lives
@@ -12,12 +12,24 @@ class mathGame():
         self.correct = 0
         self.loop = 0
 
-    def addition(self):
-        if self.difficulty == 1:
+    def generateNum(self, difficulty):
+        if difficulty == "easy":
+            num1 = random.randint(0,9)
+            num2 = random.randint(0,9)
+        elif difficulty == "medium":
+            num1 = random.randint(10,99)
+            num2 = random.randint(10,99)
+        elif difficulty == "hard":
+            num1 = random.randint(10,99)
+            num2 = random.randint(99,999)
+        numbers = num1, num2
+        return numbers
+
+    def problem(self, operation):
+        if operation == "add":
+            self.loop = 5
             while self.loop != 0:
-                self.loop = 5
-                num1 = random.randint(0,9)
-                num2 = random.randint(0,9)
+                num1,num2 = self.generateNum("easy")
                 sol = num1+num2
                 try:
                     userAnswer = int(input(f"{num1} + {num2} = "))
@@ -31,6 +43,7 @@ class mathGame():
                     elif userAnswer!=sol:
                         print("Incorrect, try again.\n")
                         self.incorrect += 1
+
 
 
 
