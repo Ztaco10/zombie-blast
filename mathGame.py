@@ -14,7 +14,7 @@ class mathGame():
 
     def addition(self):
         if self.difficulty == 1:
-            while True:
+            while self.loop != 0:
                 self.loop = 5
                 num1 = random.randint(0,9)
                 num2 = random.randint(0,9)
