@@ -29,9 +29,6 @@ class mathGame():
     def problem(self):
         if self.operation == "add":
             while self.loop != 0:
-                if self.lives == 0
-                    print("You ran out of lives!\n")
-                    break
                 num1,num2 = self.generateNum()
                 sol = num1+num2
                 try:
@@ -40,13 +37,14 @@ class mathGame():
                     print("Error: enter a valid integer\n")
                 else:
                     if userAnswer==sol:
-                        print("Correct!\n")
+
                         self.correct += 1
-                        self.coins = 10
+                        self.coins += 10
                         self.loop -= 1
+                        print(f"Correct! Your coins: {self.coins}\n")
                     elif userAnswer!=sol:
                         self.incorrect += 1
-                        self.lives -= 1
+                        #self.lives -= 1
                         while userAnswer!= sol:
                             print("Incorrect, try again.\n")
                             try:
@@ -74,8 +72,17 @@ class mathGame():
                         self.coins = 10
                         self.loop -= 1
                     elif userAnswer!=sol:
-                        print("Incorrect, try again.\n")
                         self.incorrect += 1
+                        #self.lives -= 1
+                        while userAnswer!= sol:
+                            print("Incorrect, try again.\n")
+                            try:
+                                userAnswer = int(input(f"{num1} + {num2} = "))
+                            except ValueError as e:
+                                print("Error: enter a valid integer\n")
+                            else:
+                                if userAnswer == sol:
+                                    print("Correct! But you don't get points for that.\n")
         if self.operation == "mul":
             while self.loop != 0:
                 num1,num2 = self.generateNum(self.difficulty)
@@ -91,10 +98,19 @@ class mathGame():
                         self.coins = 10
                         self.loop -= 1
                     elif userAnswer!=sol:
-                        print("Incorrect, try again.\n")
                         self.incorrect += 1
+                        #self.lives -= 1
+                        while userAnswer!= sol:
+                            print("Incorrect, try again.\n")
+                            try:
+                                userAnswer = int(input(f"{num1} + {num2} = "))
+                            except ValueError as e:
+                                print("Error: enter a valid integer\n")
+                            else:
+                                if userAnswer == sol:
+                                    print("Correct! But you don't get points for that.\n")
                         
-        return (f"You got {self.correct} correct and {self.incorrect} incorrect\n")
+        print (f"You got {self.correct} correct and {self.incorrect} incorrect. You've earned a total of {self.coins} coins.\n")
 
 
 
