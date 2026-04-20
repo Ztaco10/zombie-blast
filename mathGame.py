@@ -39,6 +39,7 @@ class mathGame():
                     if userAnswer==sol:
                         print("Correct!\n")
                         self.correct += 1
+                        self.coins = 10
                         self.loop -= 1
                     elif userAnswer!=sol:
                         print("Incorrect, try again.\n")
@@ -56,6 +57,7 @@ class mathGame():
                     if userAnswer==sol:
                         print("Correct!\n")
                         self.correct += 1
+                        self.coins = 10
                         self.loop -= 1
                     elif userAnswer!=sol:
                         print("Incorrect, try again.\n")
@@ -72,6 +74,7 @@ class mathGame():
                     if userAnswer==sol:
                         print("Correct!\n")
                         self.correct += 1
+                        self.coins = 10
                         self.loop -= 1
                     elif userAnswer!=sol:
                         print("Incorrect, try again.\n")
