@@ -8,7 +8,7 @@ def additionScene():
             if difficultyOperation < 1 or difficultyOperation > 4:
                 raise ValueError("Error: enter a number between 1-4.")
             elif difficultyOperation == 1:
-                addition = mathGame("add", "easy")
+                addition = mathGame.mathGame("add", "easy")
                 addition.problem()
             elif difficultyOperation == 2:
                 addition = mathGame("add", "medium")
@@ -16,6 +16,8 @@ def additionScene():
             elif difficultyOperation == 3:
                 addition = mathGame("add", "hard")
                 addition.problem()
+            elif difficultyOperation == 4:
+                break
         except Exception as e:
             print(e)
 
@@ -34,6 +36,8 @@ def subtractionScene():
             elif difficultyOperation == 3:
                 sub = mathGame("sub", "hard")
                 sub.problem()
+            elif difficultyOperation == 4:
+                break
         except Exception as e:
             print(e)
 
@@ -52,6 +56,8 @@ def multiplicationScene():
             elif difficultyOperation == 3:
                 mul = mathGame("mul", "hard")
                 mul.problem()
+            elif difficultyOperation == 4:
+                break
         except Exception as e:
             print(e)
 
