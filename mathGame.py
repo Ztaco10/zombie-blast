@@ -41,8 +41,10 @@ class mathGame():
                         self.coins = 10
                         self.lives -= 1
                     elif userAnswer!=sol:
-                        print("Incorrect, try again.\n")
                         self.incorrect += 1
+                        while userAnswer!= sol:
+                            print("Incorrect, try again.\n")
+                            
 
         if self.operation == "sub":
             while self.lives != 0:
@@ -78,6 +80,7 @@ class mathGame():
                     elif userAnswer!=sol:
                         print("Incorrect, try again.\n")
                         self.incorrect += 1
+                        
         return (f"You got {self.correct} correct and {self.incorrect} incorrect\n")
 
 
