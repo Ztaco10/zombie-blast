@@ -44,6 +44,10 @@ class mathGame():
                         self.incorrect += 1
                         while userAnswer!= sol:
                             print("Incorrect, try again.\n")
+                            try:
+                                userAnswer = int(input(f"{num1} + {num2} = "))
+                            except ValueError as e:
+                                print("Error: enter a valid integer\n")
                             
 
         if self.operation == "sub":
