@@ -59,7 +59,7 @@ class mathGame():
 
         if self.operation == "sub":
             while self.loop != 0:
-                num1,num2 = self.generateNum(self.difficulty)
+                num1,num2 = self.generateNum()
                 sol = num1-num2
                 try:
                     userAnswer = int(input(f"{num1} - {num2} = "))
@@ -69,7 +69,7 @@ class mathGame():
                     if userAnswer==sol:
                         print("Correct!\n")
                         self.correct += 1
-                        self.coins = 10
+                        self.coins += 10
                         self.loop -= 1
                     elif userAnswer!=sol:
                         self.incorrect += 1
@@ -77,7 +77,7 @@ class mathGame():
                         while userAnswer!= sol:
                             print("Incorrect, try again.\n")
                             try:
-                                userAnswer = int(input(f"{num1} + {num2} = "))
+                                userAnswer = int(input(f"{num1} - {num2} = "))
                             except ValueError as e:
                                 print("Error: enter a valid integer\n")
                             else:
@@ -85,7 +85,7 @@ class mathGame():
                                     print("Correct! But you don't get points for that.\n")
         if self.operation == "mul":
             while self.loop != 0:
-                num1,num2 = self.generateNum(self.difficulty)
+                num1,num2 = self.generateNum()
                 sol = num1*num2
                 try:
                     userAnswer = int(input(f"{num1} * {num2} = "))
@@ -95,7 +95,7 @@ class mathGame():
                     if userAnswer==sol:
                         print("Correct!\n")
                         self.correct += 1
-                        self.coins = 10
+                        self.coins += 10
                         self.loop -= 1
                     elif userAnswer!=sol:
                         self.incorrect += 1
@@ -103,7 +103,7 @@ class mathGame():
                         while userAnswer!= sol:
                             print("Incorrect, try again.\n")
                             try:
-                                userAnswer = int(input(f"{num1} + {num2} = "))
+                                userAnswer = int(input(f"{num1} * {num2} = "))
                             except ValueError as e:
                                 print("Error: enter a valid integer\n")
                             else:
