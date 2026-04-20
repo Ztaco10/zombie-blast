@@ -1,4 +1,4 @@
-import mathGame
+from mathGame import mathGame
 import login
 
 def additionScene():
@@ -8,7 +8,7 @@ def additionScene():
             if difficultyOperation < 1 or difficultyOperation > 4:
                 raise ValueError("Error: enter a number between 1-4.")
             elif difficultyOperation == 1:
-                addition = mathGame.mathGame("add", "easy")
+                addition = mathGame("add", "easy")
                 addition.problem()
             elif difficultyOperation == 2:
                 addition = mathGame("add", "medium")
