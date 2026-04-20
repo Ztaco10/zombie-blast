@@ -9,6 +9,7 @@ class mathGame():
         self.coins = 0
         self.incorrect = 0
         self.correct = 0
+        self.loop = 4
         self.lives = 3
         self.opSign = "+"
 
@@ -27,7 +28,10 @@ class mathGame():
 
     def problem(self):
         if self.operation == "add":
-            while self.lives != 0:
+            while self.loop != 0:
+                if self.lives == 0
+                    print("You ran out of lives!\n")
+                    break
                 num1,num2 = self.generateNum()
                 sol = num1+num2
                 try:
@@ -39,9 +43,10 @@ class mathGame():
                         print("Correct!\n")
                         self.correct += 1
                         self.coins = 10
-                        self.lives -= 1
+                        self.loop -= 1
                     elif userAnswer!=sol:
                         self.incorrect += 1
+                        self.lives -= 1
                         while userAnswer!= sol:
                             print("Incorrect, try again.\n")
                             try:
@@ -55,7 +60,7 @@ class mathGame():
                             
 
         if self.operation == "sub":
-            while self.lives != 0:
+            while self.loop != 0:
                 num1,num2 = self.generateNum(self.difficulty)
                 sol = num1-num2
                 try:
@@ -67,12 +72,12 @@ class mathGame():
                         print("Correct!\n")
                         self.correct += 1
                         self.coins = 10
-                        self.lives -= 1
+                        self.loop -= 1
                     elif userAnswer!=sol:
                         print("Incorrect, try again.\n")
                         self.incorrect += 1
         if self.operation == "mul":
-            while self.lives != 0:
+            while self.loop != 0:
                 num1,num2 = self.generateNum(self.difficulty)
                 sol = num1*num2
                 try:
@@ -84,7 +89,7 @@ class mathGame():
                         print("Correct!\n")
                         self.correct += 1
                         self.coins = 10
-                        self.lives -= 1
+                        self.loop -= 1
                     elif userAnswer!=sol:
                         print("Incorrect, try again.\n")
                         self.incorrect += 1
