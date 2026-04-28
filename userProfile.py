@@ -31,7 +31,9 @@ def profileMenu():
             value = 0
 
 def accountInfo():
+    value = 0
     try:
+        
         print('')
         print('\033[1m' + "*** Account Info MENU ***" + '\033[0m')
         print("1. Display All Information")
