@@ -1,6 +1,7 @@
 import login
 
 def profileMenu():
+    value = 0
     while(True):
         try:
             print('')
@@ -20,11 +21,13 @@ def profileMenu():
             
             if(choice > 5 or choice < 1):
                 raise ValueError
+            else:
+                return choice
+            
 
         except ValueError:
             print('\033[1m' + "*** PLEASE ENTER A NUMBER 1-5 ***" + '\033[0m')
             value = 0
-    return choice
 
 def total_currency():
     return None
@@ -38,8 +41,6 @@ def userInfo():
 print('')
 login.print_equals()
 print('')
-
-value = 0
 
 
 while(True):
