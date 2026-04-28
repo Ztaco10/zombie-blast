@@ -22,7 +22,7 @@ def mainMenu():
                 print('')
                 login.print_equals()
                 print('')
-            choice = int(input("Please choose a number from"))
+            choice = int(input("Please enter the numbered option: "))
             value = 1
             
             if(choice > 5 or choice < 1):

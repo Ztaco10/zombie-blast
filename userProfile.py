@@ -1,13 +1,13 @@
 import login
 
 def total_currency():
-    return currency
+    return None
 
 def total_items():
-    return items
+    return None
 
 def userInfo():
-    return info
+    return None
 
 print('')
 login.print_equals()
@@ -29,7 +29,7 @@ while(True):
             print('')
             login.print_equals()
             print('')
-        choice = int(input("Please choose a number from"))
+        choice = int(input("Please enter the numbered option: "))
         value = 1
         
         if(choice > 5 or choice < 1):
@@ -38,4 +38,4 @@ while(True):
     except ValueError:
         print('\033[1m' + "*** PLEASE ENTER A NUMBER 1-5 ***" + '\033[0m')
         value = 0
-#blank
+        
