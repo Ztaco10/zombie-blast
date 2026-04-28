@@ -18,11 +18,11 @@ value = 0
 while(True):
     try:
         print('')
-        print('\033[1m' + "*** GAME MAIN MENU ***" + '\033[0m')
-        print("1. Play Game")
-        print("2. Go to Shop")
-        print("3. Visit Profile")
-        print("4. Exit to Login Page")
+        print('\033[1m' + "*** PROFILE MENU ***" + '\033[0m')
+        print("1. Account Information")
+        print("2. Change Username")
+        print("3. Change Password")
+        print("4. Exit to Main Menu ")
 
 
         if(value != 0):
