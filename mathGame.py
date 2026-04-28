@@ -45,22 +45,39 @@ class mathGame():
             while self.loop != 0:
                 num1,num2 = self.generateNum()
                 sol = num1+num2
-                zombie = self.zombie_appears
-                while zombie:
+                zombieAppears = self.zombie_appears
+                while zombieAppears:
                     with open ("zombie.json", "r") as f:
                         data = json.load(f)
-                    for zombie in data:
+                    
+                    zombie = random.choice(data)
+
+                    print(f"🧟 {zombie['name']} appeared! It has {zombie['hitpoints']} hitpoints.. SOLVE THE PROBLEM TO DEFEAT HIM!!\n")
+                    loop = zombie['hitpoints']
+                    if loop != 0:
+                        try:
+                            userAnswer = int(input(f"{num1} + {num2} = "))
+                        except ValueError as e:
+                            print("Error: enter a valid integer\n")
+                        else:
+                            if userAnswer == sol:
+                                self.correct += 1
+                                self.coins += 20
+                                loop -= 1
+                            elif userAnswer != sol:
+                                self.incorrect -= 1
+                                while userAnswer != sol:
+                                    print(f"You.. MISSED AN ATTACK. HE STILL HAS {loop} HITPOINTS.")
+                                    try:
+                                        userAnswer = int(input(f"{num1} + {num2} = "))
+                                    except ValueError as e:
+                                        print("Error: enter a valid integer\n")
+                                    else:
+                                        if userAnswer == sol:
+                                            print("LANDED AN ATTACK! But you don't get points for that.\n")
+
                         
-                    
-                    print("🧟 A zombie appeared! Solve the problem to defeat it!")
-                    try:
-                        userAnswer = int(input(f"{num1} + {num2} = "))
-                    except ValueError as e:
-                        print("Error: enter a valid integer\n")
-                    
-
-
-                else:
+                
                     try:
 
                         userAnswer = int(input(f"{num1} + {num2} = "))
