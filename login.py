@@ -93,31 +93,39 @@ def password_change():
     print('')
     print_equals()
     print('')
-    print('\033[1m' + "*** Password RESET PAGE ***" + '\033[0m')
-    print("If you'd like to exit then please type '1' as username")
+    print('\033[1m' + "*** PASSWORD RESET PAGE ***" + '\033[0m')
+    print("If you'd like to exit at any time please type '1'")
     
-    username = input("Please enter a valid username: ")
+    while(True):
+        count = 0
+        username = input("Please enter a valid username: ")
 
-    if(username == "1"):
-        print("Exiting changing password page")
-        return
-    #check if the username exists
+        if(username == "1"):
+            print("Exiting changing password page")
+            return
+        
+        if not database.userExist(username):
+            print("The username you have entered does not exist.")
+            print('')
+
 
     while(True):
-        email_or_phone = input("Is your account associated with your email or phone number: ")
-        if(email_or_phone.lower() == "email"):
-            email = input("Please enter your email: ")
-            break
-        elif(email_or_phone.lower() == "phone"):
-            phone = input("Please enter your phone number: ")
-            break
-        else:
-            print('Please enter either "email" or "phone" as your choice.')
+        security_answer = input("What city were you born in: ")
 
-    #check if the account has either a email or phone number associated with it
+        if(security_answer == "1"):
+            print("Exiting changing password page")
+            return
+        
+        user = database.checkSecurity(username, security_answer)
+        
 
     while(True):
         password = input("Please enter a new password: ")
+
+        if(password == "1"):
+            print("Exiting changing password page")
+            return
+
         rePassword = input("Please reenter your password: ")
         if (password == rePassword):
             break

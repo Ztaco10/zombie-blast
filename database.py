@@ -37,6 +37,18 @@ def checkLogin(username, password):
 
     return user
 
+def checkUser(username):
+    con = connect()
+    cursor = con.cursor()
+
+    cursor.execute("""
+                   SELECT *FROM users
+                   WHERE username = ?
+                    """, (username,))
+    result = cursor.fetchone()
+    con.close()
+
+    return result is not None
 
 
 def checkSecurity(username, security_answer):
