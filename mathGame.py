@@ -110,7 +110,8 @@ class mathGame():
                                 if userAnswer == sol:
                                     print("Correct! But you don't get points for that.\n")
                         
-        print (f"You got {self.correct} correct and {self.incorrect} incorrect. You've earned a total of {self.coins} coins.\n")
+        print(f"You got {self.correct} correct and {self.incorrect} incorrect. You've earned a total of {self.coins} coins.\n")
+        return self.coins
 
 
 

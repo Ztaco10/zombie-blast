@@ -1,82 +1,80 @@
 from mathGame import mathGame
+from store import enter_store
 import login
 
-def additionScene():
+def additionScene(total_coins):
     while True:
         try:
             difficultyOperation = int(input("1. Easy\n2. Medium\n3. Hard\n4. Return to Operations Menu\n"))
             if difficultyOperation < 1 or difficultyOperation > 4:
                 raise ValueError("Error: enter a number between 1-4.")
             elif difficultyOperation == 1:
-                addition = mathGame("add", "easy")
-                addition.problem()
+                total_coins += mathGame("add", "easy").problem()
             elif difficultyOperation == 2:
-                addition = mathGame("add", "medium")
-                addition.problem()
+                total_coins += mathGame("add", "medium").problem()
             elif difficultyOperation == 3:
-                addition = mathGame("add", "hard")
-                addition.problem()
+                total_coins += mathGame("add", "hard").problem()
             elif difficultyOperation == 4:
                 break
         except Exception as e:
             print(e)
+    return total_coins
 
-def subtractionScene():
+def subtractionScene(total_coins):
     while True:
         try:
             difficultyOperation = int(input("1. Easy\n2. Medium\n3. Hard\n4. Return to Operations Menu\n"))
             if difficultyOperation < 1 or difficultyOperation > 4:
                 raise ValueError("Error: enter a number between 1-4.")
             elif difficultyOperation == 1:
-                sub = mathGame("sub", "easy")
-                sub.problem()
+                total_coins += mathGame("sub", "easy").problem()
             elif difficultyOperation == 2:
-                sub = mathGame("sub", "medium")
-                sub.problem()
+                total_coins += mathGame("sub", "medium").problem()
             elif difficultyOperation == 3:
-                sub = mathGame("sub", "hard")
-                sub.problem()
+                total_coins += mathGame("sub", "hard").problem()
             elif difficultyOperation == 4:
                 break
         except Exception as e:
             print(e)
+    return total_coins
 
-def multiplicationScene():
+def multiplicationScene(total_coins):
     while True:
         try:
             difficultyOperation = int(input("1. Easy\n2. Medium\n3. Hard\n4. Return to Operations Menu\n"))
             if difficultyOperation < 1 or difficultyOperation > 4:
                 raise ValueError("Error: enter a number between 1-4.")
             elif difficultyOperation == 1:
-                mul = mathGame("mul", "easy")
-                mul.problem()
+                total_coins += mathGame("mul", "easy").problem()
             elif difficultyOperation == 2:
-                mul = mathGame("mul", "medium")
-                mul.problem()
+                total_coins += mathGame("mul", "medium").problem()
             elif difficultyOperation == 3:
-                mul = mathGame("mul", "hard")
-                mul.problem()
+                total_coins += mathGame("mul", "hard").problem()
             elif difficultyOperation == 4:
                 break
         except Exception as e:
             print(e)
+    return total_coins
 
 def startScene():
+    total_coins = 0
     while True:
         try:
-            operationOption = int(input(("1. Add\n2. Sub\n3. Mul\n4. Quit\n")))
-            if operationOption < 1 or operationOption > 4:
-                raise ValueError("Error: enter a number between 1-4.\n")
+            print(f"\nTotal Coins: {total_coins}")
+            operationOption = int(input("1. Add\n2. Sub\n3. Mul\n4. Store\n5. Quit\n"))
+            if operationOption < 1 or operationOption > 5:
+                raise ValueError("Error: enter a number between 1-5.\n")
             elif operationOption == 1:
-                additionScene()
+                total_coins = additionScene(total_coins)
             elif operationOption == 2:
-                subtractionScene()
+                total_coins = subtractionScene(total_coins)
             elif operationOption == 3:
-                multiplicationScene()
+                total_coins = multiplicationScene(total_coins)
             elif operationOption == 4:
+                total_coins = enter_store(total_coins)
+            elif operationOption == 5:
                 break
         except Exception as e:
             print(e)
-        
 
 startScene()
