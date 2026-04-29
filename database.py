@@ -5,6 +5,28 @@ DB_NAME = "zombie_overflow.db"
 def connect():
     return sqlite3.connect(DB_NAME)
 
+
+
+def createAccount(username, password, security_answer)
+    con = connect()
+    cursor = con.cursor()
+
+    try:
+        cursor.execute("""
+                       INSERT INTO users (username, password, security_answer)
+                       values (?, ?, ?)
+                       """, (username, password, security_answer))
+        
+        con.commit()
+        return True
+    except sqlite3.IntegrityError:
+        return False
+    
+    finally:
+        con.close()
+
+
+
 def createTables():
     con = connect()
     cursor = con.cursor()
