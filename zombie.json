@@ -1,0 +1,17 @@
+[{
+    "name": "MegaDude",
+    "hitpoints" : 4
+},
+{
+    "name" : "TinyMcLime",
+    "hitpoints" : 1
+},
+{
+    "name" : "BomboBlister",
+    "hitpoints" : 2
+},
+{
+    "name" : "HeadSnapper",
+    "hitpoints" : 3
+}
+]

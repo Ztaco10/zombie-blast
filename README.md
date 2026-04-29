@@ -23,7 +23,7 @@ Zombie Overflow is a python game that allows Players to practice their arithmeti
 ---
 
 ## Tech Stack
-- **Language:** Python
+- **Language:** Python, JavaScript
 - **Concepts:** OOP, modular design
 - **Tools:** VS Code, Git/GitHub
 
