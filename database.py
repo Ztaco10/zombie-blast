@@ -6,7 +6,7 @@ def connect():
     return sqlite3.connect(DB_NAME)
 
 
-def createAccount(username, password, security_answer)
+def createAccount(username, password, security_answer):
     con = connect()
     cursor = con.cursor()
 
