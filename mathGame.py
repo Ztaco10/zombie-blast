@@ -50,48 +50,44 @@ class mathGame():
                         
     def problem(self):
         if self.operation == "add":
-            while self.loop != 0:
-                num1,num2 = self.generateNum()
-                sol = num1+num2
-                zombieAppears = self.zombieAppears()
-            if zombieAppears:
-                zombie = self.randomZombie()
-                print(f"🧟{zombie['name']} appeared! Solve the problems to defeat it!\n")
-            
-            try:
+            self.setLives()
 
-                userAnswer = int(input(f"{num1} + {num2} = "))
-            except ValueError as e:
-                print("Error: enter a valid integer\n")
-            else:
-                if userAnswer==sol:
-                    if zombieAppears:
-                        self.correct += 1
-                        print(f"Correct! You defeated {zombie['name']}!\n")
-                    else:
+            while self.loop != 0 and self.lives > 0:
+                num1, num2 = self.generateNum()
+                sol = num1 + num2
+                zombieAppears = self.zombieAppears()
+
+                if zombieAppears:
+                    zombie = self.randomZombie()
+                    print(f"🧟 {zombie['name']} appeared! Solve the problem to defeat it!\n")
+
+                try:
+                    userAnswer = int(input(f"{num1} + {num2} = "))
+                except ValueError:
+                    print("Error: enter a valid integer\n")
+                else:
+                    if userAnswer == sol:
                         self.correct += 1
                         self.coins += 10
                         self.loop -= 1
-                        print(f"Correct! Your coins: {self.coins}\n")
-                elif userAnswer!=sol:
-                    self.incorrect += 1
-                    #self.lives -= 1
-                    if zombieAppears:
-                        self.lives-=1
-                        print(f"Wrong! {zombie['name']} attackd you! Lives left: {self.lives}\n")
-                        
-                    while userAnswer!= sol:
-                        print("Incorrect, try again.\n")
-                        try:
-                            userAnswer = int(input(f"{num1} + {num2} = "))
-                        except ValueError as e:
-                            print("Error: enter a valid integer\n")
-                        else:
-                            if userAnswer == sol:
-                                print("Correct! But you don't get points for that.\n")
-                                
-                        
 
+                        if zombieAppears:
+                            print(f"Correct! You defeated {zombie['name']}! Your coins: {self.coins}\n")
+                        else:
+                            print(f"Correct! Your coins: {self.coins}\n")
+
+                    else:
+                        self.incorrect += 1
+
+                        if zombieAppears:
+                            self.lives -= 1
+                            print(f"Wrong! {zombie['name']} attacked you! Lives left: {self.lives}\n")
+                        else:
+                            print("Incorrect, try again.\n")
+
+            print(f"You got {self.correct} correct and {self.incorrect} incorrect. You've earned a total of {self.coins} coins.\n")
+            return self.coins
+       
         if self.operation == "sub":
             while self.loop != 0:
                 num1,num2 = self.generateNum()
@@ -148,7 +144,8 @@ class mathGame():
         print(f"You got {self.correct} correct and {self.incorrect} incorrect. You've earned a total of {self.coins} coins.\n")
         return self.coins
 
-
+    def getCoins(self):
+        return self.coins
 
 
 
