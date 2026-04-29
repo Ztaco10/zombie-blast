@@ -144,7 +144,8 @@ class mathGame():
         print(f"You got {self.correct} correct and {self.incorrect} incorrect. You've earned a total of {self.coins} coins.\n")
         return self.coins
 
-
+    def getCoins(self):
+        return self.coins
 
 
 
