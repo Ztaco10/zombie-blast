@@ -10,18 +10,20 @@ class mathGame():
         self.coins = 0
         self.incorrect = 0
         self.correct = 0
-        self.loop = 8
+        self.loop = 5
         self.lives = 3
         self.opSign = "+"
 
     def setLives(self):
         if self.difficulty == "easy":
-            self.lives = 5
+            self.lives = 8
+
         elif self.difficulty == "medium":
-            self.lives = 3
+            self.lives = 4
+
         elif self.difficulty == "hard":
             self.lives = 2
-        return self.lives
+
 
     def zombieAppears(self):
         return random.randint(1, 100) <= 50
@@ -82,8 +84,8 @@ class mathGame():
 
     def problem(self):
         self.setLives()
-
-        while self.loop != 0 and self.lives > 0:
+        self.setOpsign()
+        while self.loop != 0 and self.lives != 0:
             num1, num2, sol = self.problemVerification()
             zombieAppears = self.zombieAppears()
 
@@ -108,6 +110,7 @@ class mathGame():
 
                 else:
                     self.incorrect += 1
+                    self.loop -=1
 
                     if zombieAppears:
                         self.lives -= 1

@@ -1,6 +1,6 @@
 [{
     "name": "MegaDude",
-    "hitpoints" : 4
+    "hitpoints" : 3
 },
 {
     "name" : "TinyMcLime",
@@ -12,6 +12,15 @@
 },
 {
     "name" : "HeadSnapper",
-    "hitpoints" : 3
+    "hitpoints" : 2
+},
+{
+    "name" : "ToothClacker",
+    "hitpoints" : 1
+},
+
+{
+    "name" : "ClatterDatter",
+    "hitpoints" : 2
 }
 ]
