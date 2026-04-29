@@ -38,22 +38,27 @@ def main_menu():
 
 
 def login():
-    print('')
-    print_equals()
-    print('')
-    print('\033[1m' + "*** LOGIN PAGE ***" + '\033[0m')
+    while(True):
+        print('')
+        print_equals()
+        print('')
+        print('\033[1m' + "*** LOGIN PAGE ***" + '\033[0m')
 
-    print("If you'd like to exit then please type '1' as username")
-    
-    username = input("Enter your username: ")
+        print("If you'd like to exit then please type '1' as username")
+        
+        username = input("Enter your username: ")
 
-    if(username == "1"):
-        print("Exiting login page")
-        return
-    
-    password = input("Enter your password: ")
+        if(username == "1"):
+            print("Exiting login page")
+            return
+        
+        password = input("Enter your password: ")
 
-    user = database.checkLogin(username, password)
+        user = database.checkLogin(username, password)
+        if(user):
+            print("success")
+        else:
+            print("Incorrect User or Password")
 
 
 
