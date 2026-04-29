@@ -1,5 +1,5 @@
 from mathGame import mathGame
-from store import enter_store
+from shop import enter_store
 import login
 
 def mainMenu():
