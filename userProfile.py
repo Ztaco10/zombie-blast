@@ -38,7 +38,7 @@ def accountInfo():
         print('\033[1m' + "*** Account Info MENU ***" + '\033[0m')
         print("1. Display All Information")
         print("2. Display Username")
-        print("3. Display Currency")
+        print("3. Display Coins")
         print("4. Display Inventory")
         print("5. Exit to Profile Menu")
 
@@ -61,14 +61,37 @@ def accountInfo():
         print('\033[1m' + "*** PLEASE ENTER A NUMBER 1-5 ***" + '\033[0m')
         value = 0
 
-def total_currency():
+    if(choice == 1):
+        print(displayUser())
+        print(displayCoins())
+        print(displayInventory())
+    elif(choice == 2):
+        print(displayUser())
+    elif(choice == 3):
+        print(displayCoins())
+    elif(choice == 4):
+        print(displayInventory())
+    elif(choice == 5):
+        return
+    else:
+        print("Please enter the numbered option: ")
+
+
+def displayCoins():
     return None
 
-def total_items():
+def displayInventory():
     return None
 
-def userInfo():
+def displayUser():
     return None
+
+def changeUser():
+    return
+
+def changePassword():
+    return
+
 
 print('')
 login.print_equals()
@@ -79,13 +102,12 @@ while(True):
     choice = profileMenu()
 
     if(choice == 1):
-        choice = accountInfo()
-        print(choice)
+        accountInfo()
     elif(choice == 2):
-        print(2)
+        changeUser()
     elif(choice == 3):
-        print(4)
+        changePassword()
     elif(choice == 4):
-        print(1)
+        break
 
         
