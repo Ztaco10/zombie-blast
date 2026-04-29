@@ -24,6 +24,8 @@ def createAccount(username, password, security_answer):
     finally:
         con.close()
 
+
+
 def checkLogin(username, password):
     con = connect()
     cursor = con.cursor()
@@ -36,6 +38,8 @@ def checkLogin(username, password):
     con.close()
 
     return user
+
+
 
 def checkUser(username):
     con = connect()

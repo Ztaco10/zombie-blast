@@ -57,8 +57,10 @@ def login():
         user = database.checkLogin(username, password)
         if(user):
             print("success")
+            return
         else:
             print("Incorrect User or Password was entered")
+        
 
 
 
