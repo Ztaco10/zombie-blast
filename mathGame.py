@@ -53,8 +53,11 @@ class mathGame():
             while self.loop != 0:
                 num1,num2 = self.generateNum()
                 sol = num1+num2
-                zombieAppears = self.zombie_appears
-        
+                zombieAppears = self.zombieAppears()
+            if zombieAppears:
+                zombie = self.randomZombie()
+                print(f"🧟{zombie['name']} appeared! Solve the problems to defeat it!\n")
+            
             try:
 
                 userAnswer = int(input(f"{num1} + {num2} = "))
@@ -62,14 +65,21 @@ class mathGame():
                 print("Error: enter a valid integer\n")
             else:
                 if userAnswer==sol:
-
-                    self.correct += 1
-                    self.coins += 10
-                    self.loop -= 1
-                    print(f"Correct! Your coins: {self.coins}\n")
+                    if zombieAppears:
+                        self.correct += 1
+                        print(f"Correct! You defeated {zombie['name']}!\n")
+                    else:
+                        self.correct += 1
+                        self.coins += 10
+                        self.loop -= 1
+                        print(f"Correct! Your coins: {self.coins}\n")
                 elif userAnswer!=sol:
                     self.incorrect += 1
                     #self.lives -= 1
+                    if zombieAppears:
+                        self.lives-=1
+                        print(f"Wrong! {zombie['name']} attackd you! Lives left: {self.lives}\n")
+                        
                     while userAnswer!= sol:
                         print("Incorrect, try again.\n")
                         try:
