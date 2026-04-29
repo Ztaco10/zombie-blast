@@ -15,6 +15,9 @@ class mathGame():
         self.opSign = "+"
 
     def setLives(self):
+        """
+        Set the appropiate lives for each difficulty level
+        """
         if self.difficulty == "easy":
             self.lives = 8
 
@@ -26,10 +29,16 @@ class mathGame():
 
 
     def zombieAppears(self):
+        """
+        A chance that zombie appears during the gameplay
+        """
         return random.randint(1, 100) <= 50
     
     
     def generateNum(self):
+        """
+        Generate two random numbers depending on the difficulty level
+        """
         if self.difficulty == "easy":
             path = random.randint(1, 100) >= 50
             if path:
@@ -55,6 +64,9 @@ class mathGame():
         return numbers
     
     def setOpsign(self):
+        """
+        This is to make printing the problems easier to implement
+        """
         if self.operation == "add":
             self.opSign = "+"
         elif self.operation == "sub":
@@ -64,13 +76,18 @@ class mathGame():
     
 
     def randomZombie(self):
-
+        """
+        Choose a random zombie
+        """
         with open("zombie.json", "r") as f:
             zombies = json.load(f)
 
         return random.choice(zombies)
     
     def problemVerification(self):
+        """
+        Get the two numbers from generateNum and get the solution, return all the numbers
+        """
         num1, num2 = self.generateNum()
         if self.operation == "add":
             sol = num1 + num2
@@ -83,6 +100,10 @@ class mathGame():
         return numbers
 
     def problem(self):
+        """
+        Prints the problem and has a chance of zombie appearances, asks for user answer and verifies correctness.
+        Lives are limited depending on difficulty
+        """
         self.setLives()
         self.setOpsign()
         while self.loop != 0 and self.lives != 0:
