@@ -24,19 +24,31 @@ class mathGame():
         return self.lives
 
     def zombieAppears(self):
-        return random.randint(1, 100) <= 30
+        return random.randint(1, 100) <= 50
     
     
     def generateNum(self):
         if self.difficulty == "easy":
-            num1 = random.randint(0,9)
-            num2 = random.randint(0,9)
+            path = random.randint(1, 100) >= 50
+            if path:
+                num1 = random.randint(1,9)
+                num2 = random.randint(1,9)
+            else:
+                num1 = random.randint(1, 9)
+                num2 = random.randint(1, 99)
+
         elif self.difficulty == "medium":
             num1 = random.randint(10,99)
             num2 = random.randint(10,99)
+
         elif self.difficulty == "hard":
-            num1 = random.randint(10,99)
-            num2 = random.randint(99,999)
+            path = random.randint(1,100) >= 70
+            if path:
+                num1 = random.randint(10,99)
+                num2 = random.randint(100,999)
+            else:
+                num1 = random.randint(100,999)
+                num2 = random.randint(100,999)
         numbers = num1, num2
         return numbers
     
