@@ -1,4 +1,5 @@
 import shutil
+import database
 
 def print_dashes():
     dash = '-'
@@ -52,7 +53,7 @@ def login():
     #check if the username exists
 
     password = input("Enter your password: ")
-    #check if the password matches the account
+    user = database.checkLogin(username, password)
 
 
 
