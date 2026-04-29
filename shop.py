@@ -56,4 +56,7 @@ def enter_store(game):
             print("  Invalid choice, try again.\n")
 
 if __name__ == "__main__":
-    enter_store(100)
+    from mathGame import mathGame
+    game = mathGame("add", "easy")
+    game.coins = 100
+    enter_store(game)
