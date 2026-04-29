@@ -4,7 +4,7 @@ import login
 def additionScene():
     while True:
         try:
-            difficultyOperation = int(input("1. Easy\n2. Medium\n3. Hard\n4. Return to Operations Menu\n"))
+            difficultyOperation = int(input("=== DIFFICULTY OPTIONS ===\n1. Easy\n2. Medium\n3. Hard\n4. Return to Operations Menu\nInput: "))
             if difficultyOperation < 1 or difficultyOperation > 4:
                 raise ValueError("Error: enter a number between 1-4.")
             elif difficultyOperation == 1:
@@ -18,13 +18,13 @@ def additionScene():
                 addition.problem()
             elif difficultyOperation == 4:
                 break
-        except Exception as e:
+        except ValueError as e:
             print(e)
 
 def subtractionScene():
     while True:
         try:
-            difficultyOperation = int(input("1. Easy\n2. Medium\n3. Hard\n4. Return to Operations Menu\n"))
+            difficultyOperation = int(input("=== DIFFICULTY OPTIONS ===\n1. Easy\n2. Medium\n3. Hard\n4. Return to Operations Menu\nInput: "))
             if difficultyOperation < 1 or difficultyOperation > 4:
                 raise ValueError("Error: enter a number between 1-4.")
             elif difficultyOperation == 1:
@@ -38,13 +38,13 @@ def subtractionScene():
                 sub.problem()
             elif difficultyOperation == 4:
                 break
-        except Exception as e:
+        except ValueError as e:
             print(e)
 
 def multiplicationScene():
     while True:
         try:
-            difficultyOperation = int(input("1. Easy\n2. Medium\n3. Hard\n4. Return to Operations Menu\n"))
+            difficultyOperation = int(input("=== DIFFICULTY OPTIONS ===\n1. Easy\n2. Medium\n3. Hard\n4. Return to Operations Menu\nInput: "))
             if difficultyOperation < 1 or difficultyOperation > 4:
                 raise ValueError("Error: enter a number between 1-4.")
             elif difficultyOperation == 1:
@@ -58,13 +58,13 @@ def multiplicationScene():
                 mul.problem()
             elif difficultyOperation == 4:
                 break
-        except Exception as e:
+        except ValueError as e:
             print(e)
 
 def startScene():
     while True:
         try:
-            operationOption = int(input(("1. Add\n2. Sub\n3. Mul\n4. Quit\n")))
+            operationOption = int(input(("=== OPERATIONS MENU ===\n1. Add\n2. Sub\n3. Mul\n4. Quit\nInput: ")))
             if operationOption < 1 or operationOption > 4:
                 raise ValueError("Error: enter a number between 1-4.\n")
             elif operationOption == 1:
@@ -75,7 +75,7 @@ def startScene():
                 multiplicationScene()
             elif operationOption == 4:
                 break
-        except Exception as e:
+        except ValueError as e:
             print(e)
         
 
