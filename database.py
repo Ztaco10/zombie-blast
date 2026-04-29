@@ -39,6 +39,37 @@ def checkLogin(username, password):
 
 
 
+def checkSecurity(username, security_answer):
+    con = connect()
+    cursor = con.cursor()
+
+    cursor.execute("""
+                   SELECT * FROM users
+                   WHERE username = ? AND LOWER(security_answer) = LOWER(?)
+                   """, (username, security_answer))
+    
+    user = cursor.fetchone()
+    con.close()
+
+    return user
+
+
+
+def updatePassword(username, new_password):
+    con = connect()
+    cursor = con.cursor()
+
+    cursor.execute("""
+                   UPDATE users
+                   SET password = ?
+                   WHERE username = ?
+                   """, (username, new_password))
+    
+    con.commit()
+    con.close()
+
+
+
 def createTables():
     con = connect()
     cursor = con.cursor()
