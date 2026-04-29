@@ -51,7 +51,7 @@ class mathGame():
 
     def randomZombie(self):
 
-        with open("zombies.json", "r") as f:
+        with open("zombie.json", "r") as f:
             zombies = json.load(f)
 
         return random.choice(zombies)
