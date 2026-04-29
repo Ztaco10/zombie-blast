@@ -14,8 +14,7 @@ def createTables():
         user_id INTEGER PRIMARY KEY AUTOINCREMENT,
         username TEXT UNIQUE NOT NULL,
         password TEXT NOT NULL,
-        email TEXT NOT NULL,
-        phone TEXT NOT NULL,
+        security_answer TEXT NOT NULL,
         coins INTEGER DEFAULT 0
     )
     """)
