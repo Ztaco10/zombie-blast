@@ -6,7 +6,6 @@ def connect():
     return sqlite3.connect(DB_NAME)
 
 
-
 def createAccount(username, password, security_answer)
     con = connect()
     cursor = con.cursor()
@@ -24,6 +23,19 @@ def createAccount(username, password, security_answer)
     
     finally:
         con.close()
+
+def checkLogin(username, password):
+    con = connect()
+    cursor = con.cursor()
+
+    cursor.execute("""
+                   SELECT *FROM users
+                   WHERE username = ? AND password = ?
+                    """, (username, password))
+    user = cursor.fetchone()
+    con.close()
+
+    return user
 
 
 
