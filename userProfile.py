@@ -128,10 +128,10 @@ def changeUser():
             print("Answer was incorrect.")
 
     while(True):
-        new_user = input("Please enter your new password: ")
+        new_user = input("Please enter your new username: ")
 
         if(new_user == "1"):
-            print("Exiting gchanging password page")
+            print("Exiting changing username page")
             return
 
         if(database.checkUser):
