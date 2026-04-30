@@ -24,6 +24,7 @@ def print_menu(coins):
         print(f"  [{i}] {item['name']} - {item['price']} coins")
     print(f"  [{len(STORE_ITEMS) + 1}] Return to Battle")
     print()
+    print(f"You have {coins} coins")
 
 def enter_store():
     print_banner()
@@ -32,6 +33,7 @@ def enter_store():
     while True:
         username = login.getUser()
         coins = database.getCoins(username)
+        coins += 100
         print_menu(coins)
 
         choice = input("  Enter your choice: ").strip()
