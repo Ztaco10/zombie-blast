@@ -34,6 +34,8 @@ def enter_store():
         username = login.getUser()
         coins = database.getCoins(username)
         print_menu(coins)
+        for item in STORE_ITEMS:
+            database.addItem(item["name"], item["price"], item.get("description", ""))
 
         choice = input("  Enter your choice: ").strip()
         print()
