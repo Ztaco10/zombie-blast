@@ -53,9 +53,6 @@ def accountInfo():
         
         if(choice > 5 or choice < 1):
             raise ValueError
-        else:
-            return choice
-            
 
     except ValueError:
         print('')
@@ -69,14 +66,14 @@ def accountInfo():
         print(displayInventory())
     elif(choice == 2):
         print("")
-        print(displayUser())
+        displayUser()
     elif(choice == 3):
         print("")
-        print(displayCoins())
+        displayCoins()
     elif(choice == 4):
         print("")
         print("INVENTORY")
-        print(displayInventory())
+        displayInventory()
     elif(choice == 5):
         return
     else:
@@ -105,7 +102,8 @@ def displayInventory():
 
 
 def displayUser():
-    print(f"Username: {login.getUser()}")
+    user = login.getUser()
+    print(f"Username: {user}")
 
 
 
@@ -196,7 +194,7 @@ def changePassword():
             break
         print("Passwords did not match. Please try again")
     
-
+login.startMenu()
 
 print('')
 login.print_equals()

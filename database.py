@@ -123,7 +123,7 @@ def getCoins(username):
 
     cursor.execute("""
                    SELECT coins From users
-                   WHERE username = ?)
+                   WHERE username = ?
                    """, (username,))
     
     result = cursor.fetchone()
