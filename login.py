@@ -76,22 +76,32 @@ def account_create():
         if(username == "1"):
             print("Exiting account creation page")
             return
-        
-        if(database.checkUser):
+        elif(username == ""):
+            print("Username cannot be empty")
+        elif(database.checkUser):
             print("Username already exists")
         else:
             break
+    while(True):
+        password = input("Enter password: ")
+        if(password == ""):
+            print("Password cannot be empty")
+        else:
+            break
 
-    password = input("Enter password: ")
-
-    security_answer = input("What city were you born in: ")
+    while(True):
+        security_answer = input("What city were you born in: ")
+        if(security_answer == ""):
+            print("Security question answer cannot be empty")
+        else:
+            break
 
     success = database.createAccount(username, password, security_answer)
     
     if success:
         print("Account successfully created")
     else:
-        print("Username already exists")
+        print("Account creation failed")
 
 
 
