@@ -170,6 +170,20 @@ def getInventory(username):
 
 
 
+def addItem(item_name, price, description=""):
+    con = connect()
+    cursor = con.cursor()
+
+    cursor.execute("""
+                   INSERT OR IGNORE INTO items (item_name, price, description)
+                   VALUES (?, ?, ?)
+                   """, (item_name, price, description))
+
+    con.commit()
+    con.close()
+
+
+
 def addInventory(username, item_name):
     con = connect()
     cursor = con.cursor()
