@@ -114,7 +114,7 @@ def password_change():
     print('')
     print_equals()
     print('')
-    print('\033[1m' + "*** PASSWORD RESET PAGE ***" + '\033[0m')
+    print('\033[1m' + "*** PASSWORD FORGOTTEN PAGE ***" + '\033[0m')
     print("If you'd like to exit at any time please type '1'")
     
     while(True):

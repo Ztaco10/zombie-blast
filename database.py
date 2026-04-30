@@ -86,6 +86,21 @@ def updatePassword(username, new_password):
 
 
 
+def updateUser(username, new_user):
+    con = connect()
+    cursor = con.cursor()
+
+    cursor.execute("""
+                   UPDATE users
+                   SET username = ?
+                   WHERE username = ?
+                   """, (new_user, username))
+    
+    con.commit()
+    con.close()
+
+
+
 def createTables():
     con = connect()
     cursor = con.cursor()

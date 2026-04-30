@@ -1,4 +1,5 @@
 import login
+import database
 
 def profileMenu():
     value = 0
@@ -87,10 +88,91 @@ def displayUser():
     return None
 
 def changeUser():
-    return
+    print('')
+    login.print_equals()
+    print('')
+    print('\033[1m' + "*** PASSWORD FORGOTTEN PAGE ***" + '\033[0m')
+    print("If you'd like to exit at any time please type '1'")
+    
+    while(True):
+        security_answer = input("What city were you born in: ")
+
+        if(security_answer == "1"):
+            print("Exiting changing password page")
+            return
+        
+        user = database.checkSecurity(user, security_answer)
+        if(user):
+            break
+        else:
+            print("Answer was incorrect.")
+
+        while(True):
+            new_user = input("Please enter your new password: ")
+
+            if(user == "1"):
+                print("Exiting gchanging password page")
+                return
+
+            if(database.checkUser):
+                database.updateUser(user, new_user)
+                print(f"Username successfully changed to was successfully changed")
+                break
+            else:
+                print("Username was already taken. Please try again")
+
+    
+
+    
 
 def changePassword():
-    return
+    print('')
+    login.print_equals()
+    print('')
+    print('\033[1m' + "*** PASSWORD FORGOTTEN PAGE ***" + '\033[0m')
+    print("If you'd like to exit at any time please type '1'")
+    
+    while(True):
+        count = 0
+        username = input("Please enter a valid username: ")
+
+        if(username == "1"):
+            print("Exiting changing password page")
+            return
+        
+        if not database.checkUser(username):
+            print("The username you have entered does not exist.")
+            print('')
+        else:
+            break
+
+    while(True):
+        security_answer = input("What city were you born in: ")
+
+        if(security_answer == "1"):
+            print("Exiting changing password page")
+            return
+        
+        user = database.checkSecurity(username, security_answer)
+        if(user):
+            break
+        else:
+            print("Answer was incorrect.")
+
+    while(True):
+        password = input("Please enter a new password: ")
+
+        if(password == "1"):
+            print("Exiting gchanging password page")
+            return
+
+        rePassword = input("Please reenter your password: ")
+        if (password == rePassword):
+            database.updatePassword(username, password)
+            print("Password was successfully changed")
+            break
+        print("Passwords did not match. Please try again")
+    
 
 
 print('')
