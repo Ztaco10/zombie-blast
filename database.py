@@ -133,7 +133,22 @@ def getCoins(username):
 
 
 
+def getInventory(username):
+    con = connect()
+    cursor = con.cursor()
 
+    cursor.execute("""
+                   SELECT items.item_name, inventory.quantity
+                   FROM inventory
+                   JOIN users ON users.user_id = inventory.user_id
+                   JOIN items ON items.item_id = inventory.item_id
+                   WHERE users.username = ?
+                   """, (username,))
+    
+    items = cursor.fetchall()
+    con.close()
+
+    return items
 
 
 
