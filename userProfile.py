@@ -99,7 +99,7 @@ def displayInventory():
         print("*** INVENTORY ***")
         print("  Item    Quantity")
         for item in inventory:
-            print(f"Invetory: {item}")
+            print(item)
 
 
 
