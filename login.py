@@ -171,7 +171,7 @@ def game_summary():
 
 
 
-def saveUser():
+def getUser():
     return currentUser
 
 

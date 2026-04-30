@@ -78,17 +78,33 @@ def accountInfo():
         print("Please enter the numbered option: ")
 
 
-def displayCoins(username):
-    coins = database.getCoins(username)
+
+def displayCoins():
+    coins = database.getCoins(login.getUser())
 
     if coins:
         print(f"Coins: {coins[0]}")
 
+
+
 def displayInventory():
-    return None
+    print("")
+    print("INVENTORY")
+
+    inventory = database.getInventory(login.getUser())
+
+    if len(inventory) == 0:
+        print("Your inventory is empty.")
+    else:
+        for item in inventory:
+            print(item)
+
+
 
 def displayUser():
-    return None
+    print(f"Username: {login.getUser()}")
+
+
 
 def changeUser():
     print('')
@@ -138,6 +154,7 @@ def changePassword():
     while(True):
         count = 0
         username = input("Please enter a valid username: ")
+
 
         if(username == "1"):
             print("Exiting changing password page")
