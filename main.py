@@ -108,7 +108,7 @@ while(True):
             print('')
             login.print_equals()
             print('')
-        choice = int(input("Please choose a number from"))
+        choice = int(input("Please choose a number from 1-5: "))
         value = 1
         
         if(choice > 5 or choice < 1):
