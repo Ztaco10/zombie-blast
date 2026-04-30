@@ -63,14 +63,19 @@ def accountInfo():
         value = 0
 
     if(choice == 1):
+        
         print(displayUser())
         print(displayCoins())
         print(displayInventory())
     elif(choice == 2):
+        print("")
         print(displayUser())
     elif(choice == 3):
+        print("")
         print(displayCoins())
     elif(choice == 4):
+        print("")
+        print("INVENTORY")
         print(displayInventory())
     elif(choice == 5):
         return
@@ -88,8 +93,6 @@ def displayCoins():
 
 
 def displayInventory():
-    print("")
-    print("INVENTORY")
 
     inventory = database.getInventory(login.getUser())
 
