@@ -84,14 +84,18 @@ def account_create():
             break
     while(True):
         password = input("Enter password: ")
-        if(password == ""):
+        if(password == 1):
+            return
+        elif(password == ""):
             print("Password cannot be empty")
         else:
             break
 
     while(True):
         security_answer = input("What city were you born in: ")
-        if(security_answer == ""):
+        if(security_answer == 1):
+            return
+        elif(security_answer == ""):
             print("Security question answer cannot be empty")
         else:
             break
