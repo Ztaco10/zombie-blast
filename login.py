@@ -1,5 +1,6 @@
 import shutil
 import database
+import sys
 
 def print_dashes():
     dash = '-'
@@ -231,7 +232,7 @@ def startMenu():
         elif(choice == 4):
             game_summary()
         elif(choice == 5):
-            break
+            sys.exit("Exiting Program")
 
 
         
