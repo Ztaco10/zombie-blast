@@ -109,7 +109,8 @@ def password_change():
         if not database.userExist(username):
             print("The username you have entered does not exist.")
             print('')
-
+        else:
+            break
 
     while(True):
         security_answer = input("What city were you born in: ")
@@ -119,7 +120,10 @@ def password_change():
             return
         
         user = database.checkSecurity(username, security_answer)
-        
+        if(user):
+            break
+        else:
+            print("Answer was incorrect.")
 
     while(True):
         password = input("Please enter a new password: ")
@@ -130,6 +134,8 @@ def password_change():
 
         rePassword = input("Please reenter your password: ")
         if (password == rePassword):
+            database.updatePassword(username, password)
+            print("Password was successfully changed")
             break
         print("Passwords did not match. Please try again")
     
