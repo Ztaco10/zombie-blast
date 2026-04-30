@@ -92,7 +92,6 @@ login.startMenu()
 print('')
 login.print_equals()
 print('')
-value = 0
 
 while(True):
     try:
@@ -103,13 +102,7 @@ while(True):
         print("3. Visit Profile")
         print("4. Exit to Login Page")
 
-
-        if(value != 0):
-            print('')
-            login.print_equals()
-            print('')
-        choice = int(input("Please choose a number from 1-5: "))
-        value = 1
+        choice = int(input("Please choose a number from 1-4: "))
         
         if(choice > 5 or choice < 1):
             raise ValueError
