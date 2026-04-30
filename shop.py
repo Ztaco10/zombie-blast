@@ -23,6 +23,7 @@ def print_menu(coins):
     for i, item in enumerate(STORE_ITEMS, start=1):
         print(f"  [{i}] {item['name']} - {item['price']} coins")
     print(f"  [{len(STORE_ITEMS) + 1}] Return to Battle")
+    print(f"  [{len(STORE_ITEMS) + 2}] Item Guide")
     print()
     print(f"You have {coins} coins")
 
