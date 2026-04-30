@@ -24,7 +24,7 @@ def print_menu(coins):
     print(f"  [{len(STORE_ITEMS) + 1}] Return to Battle")
     print(f"  [{len(STORE_ITEMS) + 2}] Item Guide")
     print()
-    print(f"You have {coins} coins")
+    print(f"  You have {coins} coins")
 
 def enter_store():
     print_banner()
@@ -63,7 +63,7 @@ def enter_store():
                     item = STORE_ITEMS[guide_choice - 1]
                     print(f"\n  {item['name']} ({item['price']} coins)")
                     print(f"  {item.get('description', 'No description available.')}\n")
-                    time.sleep(0.3)
+                    temp = input("Press enter to continue\n")
             continue
 
         if 1 <= choice <= len(STORE_ITEMS):
