@@ -4,13 +4,20 @@ from pathlib import Path
 import random
 import json
 import database
+from economy import Economy
 
 
 class mathGame():
-    def __init__(self, operation, difficulty):
+    def __init__(self, operation, difficulty, username=None):
         self.operation = operation
         self.difficulty = difficulty
-        self.coins = 0
+        self.username = username
+
+        if self.username:
+            self.coins = database.getCoins(self.username, 0)
+        else:
+            self.coins = 0
+
         self.incorrect = 0
         self.correct = 0
         self.loop = 5
@@ -103,6 +110,13 @@ class mathGame():
         numbers = num1, num2, sol
         return numbers
 
+    def saveCoins(self):
+        """
+        Save the current coin balance to the logged-in user's database record.
+        """
+        if self.username:
+            database.updateCoins(self.username, self.coins)
+
     def problem(self):
         """
         Prints the problem and has a chance of zombie appearances, asks for user answer and verifies correctness.
@@ -126,6 +140,7 @@ class mathGame():
                 if userAnswer == sol:
                     self.correct += 1
                     self.coins += 10
+                    self.saveCoins()
                     self.loop -= 1
 
                     if zombieAppears:
@@ -146,7 +161,7 @@ class mathGame():
         print(f"You got {self.correct} correct and {self.incorrect} incorrect. You've earned a total of {self.coins} coins.\n")
 
     def getCoins(self):
-        return self.coins
+        return self.economy.get_balance()
 
 
 
