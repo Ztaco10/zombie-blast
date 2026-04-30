@@ -198,11 +198,11 @@ def startMenu():
             value = 0
 
         if(choice == 1):
-            login()
+            return login()
         elif(choice == 2):
-            account_create()
+            return account_create()
         elif(choice == 3):
-            password_change()
+            return password_change()
         elif(choice == 4):
             game_summary()
         elif(choice == 5):
