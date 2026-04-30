@@ -125,7 +125,7 @@ def password_change():
         password = input("Please enter a new password: ")
 
         if(password == "1"):
-            print("Exiting changing password page")
+            print("Exiting gchanging password page")
             return
 
         rePassword = input("Please reenter your password: ")
