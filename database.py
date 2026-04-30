@@ -133,6 +133,21 @@ def getCoins(username):
 
 
 
+def updateCoins(username, coins):
+    con = connect()
+    cursor = con.cursor()
+
+    cursor.execute("""
+                   UPDATE users
+                   SET coins = ?
+                   WHERE username = ?
+                   """, (coins, username))
+
+    con.commit()
+    con.close()
+
+
+
 def getInventory(username):
     con = connect()
     cursor = con.cursor()

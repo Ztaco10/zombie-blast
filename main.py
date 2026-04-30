@@ -119,7 +119,7 @@ while(True):
     if(choice == 1):
         startScene()
     elif(choice == 2):
-        shio
+        shop.enter_store()
     elif(choice == 3):
         userProfile.profileStart()
     elif(choice == 4):

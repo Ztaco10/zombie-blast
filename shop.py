@@ -2,7 +2,7 @@ import time
 import json
 import os
 import database
-
+import login
 
 with open(os.path.join(os.path.dirname(__file__), "shop.json")) as f:
     STORE_ITEMS = json.load(f)["items"]
@@ -25,12 +25,14 @@ def print_menu(coins):
     print(f"  [{len(STORE_ITEMS) + 1}] Return to Battle")
     print()
 
-def enter_store(game):
+def enter_store():
     print_banner()
     time.sleep(0.3)
 
     while True:
-        print_menu(game.getCoins())
+        username = login.getUser()
+        coins = database.getCoins(username)
+        print_menu(coins)
 
         choice = input("  Enter your choice: ").strip()
         print()
@@ -48,11 +50,13 @@ def enter_store(game):
 
         if 1 <= choice <= len(STORE_ITEMS):
             item = STORE_ITEMS[choice - 1]
-            if game.getCoins() >= item["price"]:
-                game.coins -= item["price"]
-                print(f"  You bought a {item['name']}! Remaining coins: {game.getCoins()}\n")
+            if database.getCoins(username) >= item["price"]:
+                coin = database.getCoins(username)
+                coin -= item["price"]
+                database.updateCoins(username, coin)
+                print(f"  You bought a {item['name']}! Remaining coins: {database.getCoins(username)}\n")
             else:
-                print(f"  Not enough coins! Need {item['price']}, you have {game.getCoins()}.\n")
+                print(f"  Not enough coins! Need {item['price']}, you have {database.getCoins(username)}.\n")
             time.sleep(0.3)
         else:
             print("  Invalid choice, try again.\n")
