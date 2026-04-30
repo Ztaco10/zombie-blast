@@ -89,10 +89,6 @@ def startScene():
 
 login.startMenu()
 
-print('')
-login.print_equals()
-print('')
-
 while(True):
     try:
         print('')

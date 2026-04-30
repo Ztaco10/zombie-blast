@@ -18,7 +18,6 @@ def print_banner():
     """)
 
 def print_menu(coins):
-    print(f"  Coins: {coins}\n")
     print("  What would you like to buy?\n")
     for i, item in enumerate(STORE_ITEMS, start=1):
         print(f"  [{i}] {item['name']} - {item['price']} coins")
