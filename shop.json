@@ -1,7 +1,7 @@
 {
     "items": [
-        {"name": "Potion", "price": 30},
-        {"name": "Sword",  "price": 80},
-        {"name": "Shield", "price": 60}
+        {"name": "Potion", "price": 30, "description": "Player regains 1 life"},
+        {"name": "Sword",  "price": 80, "description": "Instantly kills 1 zombie"},
+        {"name": "Shield", "price": 60, "description": "Blocks 1 zombie attack (no wrong answer penalty)"},
     ]
 }
