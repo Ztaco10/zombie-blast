@@ -83,7 +83,7 @@ def displayCoins():
     coins = database.getCoins(login.getUser())
 
     if coins:
-        print(f"Coins: {coins[0]}")
+        print(f"Coins: {coins}")
     else:
         print("You have no coins")
 
