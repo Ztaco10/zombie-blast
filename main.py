@@ -92,6 +92,7 @@ login.startMenu()
 print('')
 login.print_equals()
 print('')
+value = 1
 
 while(True):
     try:
