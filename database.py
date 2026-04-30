@@ -79,7 +79,7 @@ def updatePassword(username, new_password):
                    UPDATE users
                    SET password = ?
                    WHERE username = ?
-                   """, (username, new_password))
+                   """, (new_password, username))
     
     con.commit()
     con.close()

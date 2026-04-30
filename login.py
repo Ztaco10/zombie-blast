@@ -70,12 +70,17 @@ def account_create():
     print('')
     print('\033[1m' + "*** ACCOUNT CREATION PAGE ***" + '\033[0m')
     print("If you'd like to exit then please type '1' as username")
-    
-    username = input("Please enter a valid username: ")
-    #check if the username already exists
-    if(username == "1"):
-        print("Exiting account creation page")
-        return
+    while(True):
+        username = input("Please enter a valid username: ")
+        #check if the username already exists
+        if(username == "1"):
+            print("Exiting account creation page")
+            return
+        
+        if(database.checkUser):
+            print("Username already exists")
+        else:
+            break
 
     password = input("Enter password: ")
 
