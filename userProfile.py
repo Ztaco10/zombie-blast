@@ -78,8 +78,11 @@ def accountInfo():
         print("Please enter the numbered option: ")
 
 
-def displayCoins():
-    return None
+def displayCoins(username):
+    coins = database.getCoins(username)
+
+    if coins:
+        print(f"Coins: {coins[0]}")
 
 def displayInventory():
     return None
