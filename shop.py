@@ -54,6 +54,7 @@ def enter_store():
             if coins >= item["price"]:
                 coins -= item["price"]
                 database.updateCoins(username, coins)
+                database.addInventory(username, item["name"])
 
                 print(f"  You bought a {item['name']}! Remaining coins: {coins}\n")
             
