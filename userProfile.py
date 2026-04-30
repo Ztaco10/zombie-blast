@@ -127,19 +127,19 @@ def changeUser():
         else:
             print("Answer was incorrect.")
 
-        while(True):
-            new_user = input("Please enter your new password: ")
+    while(True):
+        new_user = input("Please enter your new password: ")
 
-            if(new_user == "1"):
-                print("Exiting gchanging password page")
-                return
+        if(new_user == "1"):
+            print("Exiting gchanging password page")
+            return
 
-            if(database.checkUser):
-                database.updateUser(username, new_user)
-                print(f"Username successfully changed to was successfully changed")
-                break
-            else:
-                print("Username was already taken. Please try again")
+        if(database.checkUser):
+            database.updateUser(username, new_user)
+            print(f"Username successfully changed to was successfully changed")
+            break
+        else:
+            print("Username was already taken. Please try again")
 
     
 
