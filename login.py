@@ -78,10 +78,11 @@ def account_create():
             return
         elif(username == ""):
             print("Username cannot be empty")
-        elif(not database.checkUser):
+        elif (database.checkUser(username)):
             print("Username already exists")
         else:
             break
+
     while(True):
         password = input("Enter password: ")
         if(password == 1):
@@ -206,7 +207,7 @@ def startMenu():
 
         if(choice == 1):
             currentUser = login()
-            
+
             if(currentUser):
                 return currentUser
             
