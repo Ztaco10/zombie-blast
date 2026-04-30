@@ -2,6 +2,8 @@
 # lives, correctness, etc all in one place
 import random
 import json
+import database
+
 
 class mathGame():
     def __init__(self, operation, difficulty):

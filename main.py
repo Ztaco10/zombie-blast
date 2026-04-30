@@ -1,5 +1,11 @@
 from mathGame import mathGame
 import login
+import userProfile
+import shop
+import test_currency
+import economy
+import database
+
 
 def additionScene():
     while True:

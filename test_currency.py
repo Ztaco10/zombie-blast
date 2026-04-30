@@ -10,6 +10,8 @@ granting unique rewards. The tests can be run from the terminal with
 """
 
 import unittest
+import database
+
 
 from economy import Economy, BASE_CORRECT_REWARD, BASE_MONSTER_REWARD, DIFFICULTY_MULTIPLIERS, LEVEL_SCALING_FACTOR
 

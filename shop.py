@@ -1,6 +1,8 @@
 import time
 import json
 import os
+import database
+
 
 with open(os.path.join(os.path.dirname(__file__), "shop.json")) as f:
     STORE_ITEMS = json.load(f)["items"]

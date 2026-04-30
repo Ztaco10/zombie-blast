@@ -25,6 +25,8 @@ these values to tune the pace of progression or difficulty.
 
 from dataclasses import dataclass, field
 from typing import Set, Dict
+import database
+
 
 # Base amount of coins awarded for a correct answer before scaling.
 BASE_CORRECT_REWARD: int = 10
