@@ -186,23 +186,22 @@ def changePassword():
             break
         print("Passwords did not match. Please try again")
     
-login.startMenu()
+def profileStart():
+    print('')
+    login.print_equals()
+    print('')
 
-print('')
-login.print_equals()
-print('')
 
+    while(True):
+        choice = profileMenu()
 
-while(True):
-    choice = profileMenu()
+        if(choice == 1):
+            accountInfo()
+        elif(choice == 2):
+            changeUser()
+        elif(choice == 3):
+            changePassword()
+        elif(choice == 4):
+            break
 
-    if(choice == 1):
-        accountInfo()
-    elif(choice == 2):
-        changeUser()
-    elif(choice == 3):
-        changePassword()
-    elif(choice == 4):
-        break
-
-        
+            
