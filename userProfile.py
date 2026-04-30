@@ -61,9 +61,9 @@ def accountInfo():
 
     if(choice == 1):
         
-        print(displayUser())
-        print(displayCoins())
-        print(displayInventory())
+        displayUser()
+        displayCoins()
+        displayInventory()
     elif(choice == 2):
         print("")
         displayUser()
@@ -71,8 +71,6 @@ def accountInfo():
         print("")
         displayCoins()
     elif(choice == 4):
-        print("")
-        print("INVENTORY")
         displayInventory()
     elif(choice == 5):
         return
@@ -97,7 +95,7 @@ def displayInventory():
         print("Your inventory is empty.")
     else:
         for item in inventory:
-            print(item)
+            print(f"Invetory: {item}")
 
 
 
@@ -120,8 +118,8 @@ def changeUser():
         if(security_answer == "1"):
             print("Exiting changing password page")
             return
-        
-        user = database.checkSecurity(user, security_answer)
+        username = login.getUser
+        user = database.checkSecurity(username, security_answer)
         if(user):
             break
         else:
@@ -151,22 +149,9 @@ def changePassword():
     print('')
     print('\033[1m' + "*** PASSWORD FORGOTTEN PAGE ***" + '\033[0m')
     print("If you'd like to exit at any time please type '1'")
+
+    username = login.getUser()
     
-    while(True):
-        count = 0
-        username = input("Please enter a valid username: ")
-
-
-        if(username == "1"):
-            print("Exiting changing password page")
-            return
-        
-        if not database.checkUser(username):
-            print("The username you have entered does not exist.")
-            print('')
-        else:
-            break
-
     while(True):
         security_answer = input("What city were you born in: ")
 
