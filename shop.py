@@ -33,8 +33,6 @@ def enter_store():
     while True:
         username = login.getUser()
         coins = database.getCoins(username)
-        coins += 100
-        database.updateCoins(username, coins)
         print_menu(coins)
 
         choice = input("  Enter your choice: ").strip()
