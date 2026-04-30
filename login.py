@@ -174,6 +174,9 @@ def game_summary():
 def getUser():
     return currentUser
 
+def setUser(new_user):
+    currentUser = new_user
+
 
 
 def startMenu():

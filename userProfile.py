@@ -136,7 +136,8 @@ def changeUser():
 
         if(database.checkUser):
             database.updateUser(username, new_user)
-            print(f"Username successfully changed to was successfully changed")
+            login.setUser(new_user)
+            print(f"Username successfully changed to {new_user}")
             break
         else:
             print("Username was already taken. Please try again")
