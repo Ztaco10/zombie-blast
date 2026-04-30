@@ -56,8 +56,8 @@ def login():
 
         user = database.checkLogin(username, password)
         if(user):
-            print("success")
-            return
+            print("Login Successful")
+            return username
         else:
             print("Incorrect User or Password was entered")
         
@@ -104,6 +104,7 @@ def account_create():
     
     if success:
         print("Account successfully created")
+        return username
     else:
         print("Account creation failed")
 
@@ -155,7 +156,7 @@ def password_change():
         if (password == rePassword):
             database.updatePassword(username, password)
             print("Password was successfully changed")
-            break
+            return username
         print("Passwords did not match. Please try again")
     
 
@@ -165,46 +166,47 @@ def game_summary():
     print_equals()
     print('')
     print("This is a math zombie game where you use math problems to defeat evil zombies! As you play you can earn currency and buy power-ups to better help you to defeat the zombies.")
-    exit = input("Press enter to continue")
+    exit = input("Press enter to continue\n")
+    
     
 
 
+def startMenu():
+    print('')
+    print("_____________________________________")
+    print('\033[1m' + "| HELLO WELCOME TO ZOMBIE OVERFLOW! |" + '\033[0m')
+    print("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾")
+    choice = 0
+    value = 0
 
-print('')
-print("_____________________________________")
-print('\033[1m' + "| HELLO WELCOME TO ZOMBIE OVERFLOW! |" + '\033[0m')
-print("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾")
-choice = 0
-value = 0
+    database.createTables()
+    while(True):
+        try:
+            if(value != 0):
+                print('')
+                print_equals()
+                print('')
 
-database.createTables()
-while(True):
-    try:
-        if(value != 0):
-            print('')
-            print_equals()
-            print('')
+            value = 1
+            choice = main_menu()
+            
+            if(choice > 5 or choice < 1):
+                raise ValueError
 
-        value = 1
-        choice = main_menu()
-        
-        if(choice > 5 or choice < 1):
-            raise ValueError
+        except ValueError:
+            print('\033[1m' + "*** PLEASE ENTER A NUMBER 1-5 ***" + '\033[0m')
+            value = 0
 
-    except ValueError:
-        print('\033[1m' + "*** PLEASE ENTER A NUMBER 1-5 ***" + '\033[0m')
-        value = 0
-
-    if(choice == 1):
-        login()
-    elif(choice == 2):
-        account_create()
-    elif(choice == 3):
-        password_change()
-    elif(choice == 4):
-        game_summary()
-    elif(choice == 5):
-        break
+        if(choice == 1):
+            login()
+        elif(choice == 2):
+            account_create()
+        elif(choice == 3):
+            password_change()
+        elif(choice == 4):
+            game_summary()
+        elif(choice == 5):
+            break
 
 
         
