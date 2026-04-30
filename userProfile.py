@@ -62,7 +62,9 @@ def accountInfo():
     if(choice == 1):
         
         displayUser()
+        print("")
         displayCoins()
+        print("")
         displayInventory()
     elif(choice == 2):
         print("")
