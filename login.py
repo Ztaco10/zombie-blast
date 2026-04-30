@@ -78,7 +78,7 @@ def account_create():
             return
         elif(username == ""):
             print("Username cannot be empty")
-        elif(database.checkUser):
+        elif(not database.checkUser):
             print("Username already exists")
         else:
             break
