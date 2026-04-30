@@ -106,8 +106,8 @@ def getUser(username):
     cursor = con.cursor()
 
     cursor.execute("""
-                    Select username From users
-                    Where username = ?
+                    SELECT username From users
+                    WHERE username = ?
                     """, (username,))
     
     result = cursor.fetchbone()
