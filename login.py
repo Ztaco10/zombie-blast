@@ -232,7 +232,7 @@ def startMenu():
         elif(choice == 4):
             game_summary()
         elif(choice == 5):
-            sys.exit("Exiting Program")
+            sys.exit("Exiting Program...")
 
 
         
