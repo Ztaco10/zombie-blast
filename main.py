@@ -96,6 +96,8 @@ print('')
 while(True):
     try:
         print('')
+        login.print_equals
+        print('')
         print('\033[1m' + "*** GAME MAIN MENU ***" + '\033[0m')
         print("1. Play Game")
         print("2. Go to Shop")
