@@ -50,13 +50,16 @@ def enter_store():
 
         if 1 <= choice <= len(STORE_ITEMS):
             item = STORE_ITEMS[choice - 1]
+
             if database.getCoins(username) >= item["price"]:
-                coin = database.getCoins(username)
-                coin -= item["price"]
-                database.updateCoins(username, coin)
+                coins -= item["price"]
+                database.updateCoins(username, coins)
+
                 print(f"  You bought a {item['name']}! Remaining coins: {database.getCoins(username)}\n")
+            
             else:
                 print(f"  Not enough coins! Need {item['price']}, you have {database.getCoins(username)}.\n")
+
             time.sleep(0.3)
         else:
             print("  Invalid choice, try again.\n")
