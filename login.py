@@ -106,7 +106,7 @@ def password_change():
             print("Exiting changing password page")
             return
         
-        if not database.userExist(username):
+        if not database.checkUser(username):
             print("The username you have entered does not exist.")
             print('')
         else:
