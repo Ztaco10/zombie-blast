@@ -130,7 +130,9 @@ def getCoins(username):
     result = cursor.fetchone()
     con.close()
 
-    return result
+    if result:
+        return result[0]
+    return 0
 
 
 
