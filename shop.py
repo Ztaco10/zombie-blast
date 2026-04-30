@@ -60,9 +60,10 @@ def enter_store():
             time.sleep(0.3)
         else:
             print("  Invalid choice, try again.\n")
-
+"""
 if __name__ == "__main__":
     from mathGame import mathGame
     game = mathGame("add", "easy")
     game.coins = 100
     enter_store(game)
+"""
