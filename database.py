@@ -101,6 +101,21 @@ def updateUser(username, new_user):
 
 
 
+def getUser(username):
+    con = connect()
+    cursor = con.cursor()
+
+    cursor.execute("""
+                    Select username From users
+                    Where username = ?
+                    """, (username,))
+    
+    result = cursor.fetchbone()
+    con.close()
+
+    return result
+
+
 def createTables():
     con = connect()
     cursor = con.cursor()
