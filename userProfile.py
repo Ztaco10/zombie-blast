@@ -84,6 +84,8 @@ def displayCoins():
 
     if coins:
         print(f"Coins: {coins[0]}")
+    else:
+        print("You have no coins")
 
 
 
@@ -109,7 +111,7 @@ def changeUser():
     print('')
     login.print_equals()
     print('')
-    print('\033[1m' + "*** PASSWORD FORGOTTEN PAGE ***" + '\033[0m')
+    print('\033[1m' + "*** CHANGE USER PAGE ***" + '\033[0m')
     print("If you'd like to exit at any time please type '1'")
     
     while(True):
@@ -118,7 +120,7 @@ def changeUser():
         if(security_answer == "1"):
             print("Exiting changing password page")
             return
-        username = login.getUser
+        username = login.getUser()
         user = database.checkSecurity(username, security_answer)
         if(user):
             break
@@ -128,12 +130,12 @@ def changeUser():
         while(True):
             new_user = input("Please enter your new password: ")
 
-            if(user == "1"):
+            if(new_user == "1"):
                 print("Exiting gchanging password page")
                 return
 
             if(database.checkUser):
-                database.updateUser(user, new_user)
+                database.updateUser(username, new_user)
                 print(f"Username successfully changed to was successfully changed")
                 break
             else:
@@ -147,11 +149,11 @@ def changePassword():
     print('')
     login.print_equals()
     print('')
-    print('\033[1m' + "*** PASSWORD FORGOTTEN PAGE ***" + '\033[0m')
+    print('\033[1m' + "*** CHANGE PASSWORD PAGE ***" + '\033[0m')
     print("If you'd like to exit at any time please type '1'")
 
     username = login.getUser()
-    
+
     while(True):
         security_answer = input("What city were you born in: ")
 

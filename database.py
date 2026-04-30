@@ -110,7 +110,7 @@ def getUser(username):
                     WHERE username = ?
                     """, (username,))
     
-    result = cursor.fetchbone()
+    result = cursor.fetchone()
     con.close()
 
     return result
@@ -127,7 +127,7 @@ def getCoins(username):
                    """, (username,))
     
     result = cursor.fetchone()
-    con.close
+    con.close()
 
     return result
 
