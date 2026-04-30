@@ -132,6 +132,18 @@ class mathGame():
                 zombie = self.randomZombie()
                 print(f"🧟 {zombie['name']} appeared! Solve the problem to defeat it!\n")
 
+                inventory = database.getInventory(self.username) if self.username else []
+                item_names = [row[0] for row in inventory]
+                if "Sword" in item_names:
+                    use = input("  You have a Sword! Use it to auto-defeat? (y/n): ").strip()
+                    if use == "y":
+                        print(f"  You used a Sword to defeat {zombie['name']}!\n")
+                        self.correct += 1
+                        self.coins += 10
+                        self.saveCoins()
+                        self.loop -= 1
+                        continue
+
             try:
                 userAnswer = int(input(f"{num1} {self.opSign} {num2} = "))
             except ValueError:
