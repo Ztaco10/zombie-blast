@@ -96,6 +96,8 @@ def displayInventory():
     if len(inventory) == 0:
         print("Your inventory is empty.")
     else:
+        print("*** INVENTORY ***")
+        print("  Item    Quantity")
         for item in inventory:
             print(f"Invetory: {item}")
 
