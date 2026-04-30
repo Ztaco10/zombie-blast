@@ -116,6 +116,27 @@ def getUser(username):
     return result
 
 
+
+def getCoins(username):
+    con = connect()
+    cursor = con.cursor()
+
+    cursor.execute("""
+                   SELECT coins From users
+                   WHERE username = ?)
+                   """, (username,))
+    
+    result = cursor.fetchone()
+    con.close
+
+    return result
+
+
+
+
+
+
+
 def createTables():
     con = connect()
     cursor = con.cursor()
