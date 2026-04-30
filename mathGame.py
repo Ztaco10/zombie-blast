@@ -5,6 +5,7 @@ import random
 import json
 import database
 from economy import Economy
+import login
 
 
 class mathGame():
@@ -142,6 +143,7 @@ class mathGame():
                         self.coins += 10
                         self.saveCoins()
                         self.loop -= 1
+                        database.removeInventory(login.getUser(), "Sword")
                         continue
 
             try:
