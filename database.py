@@ -118,12 +118,22 @@ def getUser(username):
 
 
 
-def getCoins(username):
+def getCoins(username, coins=0):
+    """
+    Return the coin balance for a username.
+
+    The coins parameter stays optional so older code like
+    getCoins(username, 0) and newer code like getCoins(username)
+    both work.
+    """
+    if not username:
+        return 0
+
     con = connect()
     cursor = con.cursor()
 
     cursor.execute("""
-                   SELECT coins From users
+                   SELECT coins FROM users
                    WHERE username = ?
                    """, (username,))
     

@@ -14,13 +14,13 @@ def additionScene():
             if difficultyOperation < 1 or difficultyOperation > 4:
                 raise ValueError("Error: enter a number between 1-4.")
             elif difficultyOperation == 1:
-                addition = mathGame("add", "easy")
+                addition = mathGame("add", "easy", login.getUser())
                 addition.problem()
             elif difficultyOperation == 2:
-                addition = mathGame("add", "medium")
+                addition = mathGame("add", "medium", login.getUser())
                 addition.problem()
             elif difficultyOperation == 3:
-                addition = mathGame("add", "hard")
+                addition = mathGame("add", "hard", login.getUser())
                 addition.problem()
             elif difficultyOperation == 4:
                 break
@@ -34,13 +34,13 @@ def subtractionScene():
             if difficultyOperation < 1 or difficultyOperation > 4:
                 raise ValueError("Error: enter a number between 1-4.")
             elif difficultyOperation == 1:
-                sub = mathGame("sub", "easy")
+                sub = mathGame("sub", "easy", login.getUser())
                 sub.problem()
             elif difficultyOperation == 2:
-                sub = mathGame("sub", "medium")
+                sub = mathGame("sub", "medium", login.getUser())
                 sub.problem()
             elif difficultyOperation == 3:
-                sub = mathGame("sub", "hard")
+                sub = mathGame("sub", "hard", login.getUser())
                 sub.problem()
             elif difficultyOperation == 4:
                 break
@@ -54,13 +54,13 @@ def multiplicationScene():
             if difficultyOperation < 1 or difficultyOperation > 4:
                 raise ValueError("Error: enter a number between 1-4.")
             elif difficultyOperation == 1:
-                mul = mathGame("mul", "easy")
+                mul = mathGame("mul", "easy", login.getUser())
                 mul.problem()
             elif difficultyOperation == 2:
-                mul = mathGame("mul", "medium")
+                mul = mathGame("mul", "medium", login.getUser())
                 mul.problem()
             elif difficultyOperation == 3:
-                mul = mathGame("mul", "hard")
+                mul = mathGame("mul", "hard", login.getUser())
                 mul.problem()
             elif difficultyOperation == 4:
                 break
