@@ -241,6 +241,64 @@ def addInventory(username, item_name):
 
 
 
+def removeInventory(username, item_name):
+    con = connect()
+    cursor = con.cursor()
+
+    # get user_id
+    cursor.execute("""
+        SELECT user_id FROM users
+        WHERE username = ?
+    """, (username,))
+    user = cursor.fetchone()
+
+    # get item_id
+    cursor.execute("""
+        SELECT item_id FROM items
+        WHERE item_name = ?
+    """, (item_name,))
+    item = cursor.fetchone()
+
+    if user is None or item is None:
+        con.close()
+        return False
+
+    user_id = user[0]
+    item_id = item[0]
+
+    # check current quantity
+    cursor.execute("""
+        SELECT quantity FROM inventory
+        WHERE user_id = ? AND item_id = ?
+    """, (user_id, item_id))
+    result = cursor.fetchone()
+
+    if result is None:
+        con.close()
+        return False
+
+    quantity = result[0]
+
+    if quantity > 1:
+        # subtract 1
+        cursor.execute("""
+            UPDATE inventory
+            SET quantity = quantity - 1
+            WHERE user_id = ? AND item_id = ?
+        """, (user_id, item_id))
+    else:
+        # delete item if it was the last one
+        cursor.execute("""
+            DELETE FROM inventory
+            WHERE user_id = ? AND item_id = ?
+        """, (user_id, item_id))
+
+    con.commit()
+    con.close()
+    return True
+
+
+
 def createTables():
     con = connect()
     cursor = con.cursor()
