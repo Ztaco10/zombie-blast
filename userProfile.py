@@ -111,14 +111,14 @@ def changeUser():
     print('')
     login.print_equals()
     print('')
-    print('\033[1m' + "*** CHANGE USER PAGE ***" + '\033[0m')
+    print('\033[1m' + "*** CHANGE USERNAME PAGE ***" + '\033[0m')
     print("If you'd like to exit at any time please type '1'")
     
     while(True):
         security_answer = input("What city were you born in: ")
 
         if(security_answer == "1"):
-            print("Exiting changing password page")
+            print("Exiting changing change username page")
             return
         username = login.getUser()
         user = database.checkSecurity(username, security_answer)
