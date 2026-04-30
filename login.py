@@ -139,6 +139,8 @@ def password_change():
         if(security_answer == "1"):
             print("Exiting changing password page")
             return
+        elif(security_answer == ""):
+            print("Security question answer cannot be empty")
         
         user = database.checkSecurity(username, security_answer)
         if(user):
@@ -150,8 +152,11 @@ def password_change():
         password = input("Please enter a new password: ")
 
         if(password == "1"):
-            print("Exiting gchanging password page")
+            print("Exiting changing password page")
             return
+        elif(password == ""):
+            print("Your password cannot be empty")
+        
 
         rePassword = input("Please reenter your password: ")
         if (password == rePassword):

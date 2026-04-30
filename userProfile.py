@@ -133,6 +133,8 @@ def changeUser():
         if(new_user == "1"):
             print("Exiting changing username page")
             return
+        elif(new_user == ""):
+            print("Your username cannot be empty")
 
         if(database.checkUser):
             database.updateUser(username, new_user)
@@ -174,6 +176,8 @@ def changePassword():
         if(password == "1"):
             print("Exiting gchanging password page")
             return
+        elif(password == ""):
+            print("Your password cannot be empty")
 
         rePassword = input("Please reenter your password: ")
         if (password == rePassword):
