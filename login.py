@@ -166,9 +166,13 @@ def game_summary():
     print_equals()
     print('')
     print("This is a math zombie game where you use math problems to defeat evil zombies! As you play you can earn currency and buy power-ups to better help you to defeat the zombies.")
-    exit = input("Press enter to continue\n")
-    
-    
+    exit = input("Press enter to continue\n")    
+
+
+
+def saveUser():
+    return currentUser
+
 
 
 def startMenu():
@@ -178,6 +182,9 @@ def startMenu():
     print("‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾")
     choice = 0
     value = 0
+    global currentUser
+    currentUser = None
+    
 
     database.createTables()
     while(True):
@@ -198,11 +205,23 @@ def startMenu():
             value = 0
 
         if(choice == 1):
-            return login()
+            currentUser = login()
+            
+            if(currentUser):
+                return currentUser
+            
         elif(choice == 2):
-            return account_create()
+            currentUser = account_create()
+
+            if(currentUser):
+                return currentUser
+            
         elif(choice == 3):
-            return password_change()
+            currentUser = password_change()
+
+            if(currentUser):
+                return currentUser
+            
         elif(choice == 4):
             game_summary()
         elif(choice == 5):
