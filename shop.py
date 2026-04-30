@@ -52,6 +52,21 @@ def enter_store():
             time.sleep(0.4)
             return
 
+        if choice == len(STORE_ITEMS) + 2:
+            print("  --- Item Guide ---\n")
+            for i, item in enumerate(STORE_ITEMS, start=1):
+                print(f"  [{i}] {item['name']}")
+            print()
+            guide_choice = input("  Choose an item to learn more (or 0 to go back): ").strip()
+            if guide_choice.isdigit():
+                guide_choice = int(guide_choice)
+                if 1 <= guide_choice <= len(STORE_ITEMS):
+                    item = STORE_ITEMS[guide_choice - 1]
+                    print(f"\n  {item['name']} ({item['price']} coins)")
+                    print(f"  {item.get('description', 'No description available.')}\n")
+                    time.sleep(0.3)
+            continue
+
         if 1 <= choice <= len(STORE_ITEMS):
             item = STORE_ITEMS[choice - 1]
 
