@@ -1,5 +1,6 @@
 # im deciding to create a class to handle
 # lives, correctness, etc all in one place
+from pathlib import Path
 import random
 import json
 import database
@@ -81,7 +82,8 @@ class mathGame():
         """
         Choose a random zombie
         """
-        with open("zombie.json", "r") as f:
+        zombie_file = Path(__file__).parent / "zombie.json"
+        with open(zombie_file, "r", encoding="utf-8") as f:
             zombies = json.load(f)
 
         return random.choice(zombies)
