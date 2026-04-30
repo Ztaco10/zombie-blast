@@ -97,9 +97,10 @@ def displayInventory():
         print("Your inventory is empty.")
     else:
         print("*** INVENTORY ***")
-        print("  Item    Quantity")
-        for item in inventory:
-            print(item)
+        print(f"{'Item':<12}{'Quantity'}")
+
+        for name, qty in inventory:
+            print(f"{name:<12}{qty}")
 
 
 
